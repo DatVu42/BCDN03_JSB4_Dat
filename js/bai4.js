@@ -14,24 +14,27 @@
  * Output: loại tam giác
  */
 
-var inpA = document.getElementById("canhA");
-var inpB = document.getElementById("canhB");
-var inpC = document.getElementById("canhC");
+var inpA = document.getElementById("a");
+var inpB = document.getElementById("b");
+var inpC = document.getElementById("c");
 
 function timTamGiac() {
-    var canhA = inpA.value;
-    var canhB = inpB.value;
-    var canhC = inpC.value;
+    var a = Number(inpA.value);
+    var b = Number(inpB.value);
+    var c = Number(inpC.value);
     var loaiTamGiac = "";
 
-    if (canhA == canhB && canhA == canhC) {
+    if (a + b <= c || b + c <= a || a + c <= b) {
+        alert("Không phải là tam giác");
+        return;
+    };
+
+    if (a == b && b == c) {
         loaiTamGiac = "Tam giác đều";
-    } else if (canhA == canhB || canhA == canhC || canhB == canhC) {
+    } else if (a == b || a == c || b == c) {
         loaiTamGiac = "Tam giác cân";
-    } else if (canhA * canhA + canhB * canhB == canhC * canhC) {
+    } else if (a*a == b*b + c*c || b*b == a*a + c*c || c*c == a*a + b*b) {
         loaiTamGiac = "Tam giác vuông";
-    } else {
-        loaiTamGiac = "Không phải là tam giác";
     }
 
     document.getElementById("display-tamgiac").innerHTML = loaiTamGiac;
