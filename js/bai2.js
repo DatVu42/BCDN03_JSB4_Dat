@@ -2,43 +2,39 @@
  * Input: B, M, A, E
  * 
  * Các bước xử lý:
- * B1: Tìm các thẻ bằng id
- * B2: Tạo hàm tính
+ * B1: Tạo hàm tính
  *      + Lấy giá trị từ form
  *      + Nếu user = "B" => "Chào Bố"
  *          Nếu user = "M" => "Chào Mẹ"
  *          Nếu user = "A" => "Chào Anh trai"
  *          Nếu user = "E" => "Chào Em gái"
- *          Còn lại => "Bạn không phải thành viên trong gia đình"
+ *          Còn lại => "Chào Người lạ ơi!"
  *      + Hiển thị kết quả lên UI
- * B3: Gắn hàm vào sự kiện click
+ * B2: Gắn hàm vào sự kiện click
  * 
  * Output: "Chào" + user
  */
 
-var inpUser = document.getElementById("user");
-
-function welcomeUser() {
-    var user = inpUser.value;
-    user = user.toUpperCase();
+function userWelcome() {
+    var user = document.getElementById("user").value;
     var welcome = "";
     
     switch (user) {
         case "B":
-            welcome = "Chào Bố";
+            welcome = "Chào Bố!";
             break;
         case "M":
-            welcome = "Chào Mẹ";
+            welcome = "Chào Mẹ!";
             break;
         case "A":
-            welcome = "Chào Anh trai";
+            welcome = "Chào Anh trai!";
             break;
         case "E":
-            welcome = "Chào Em gái";
+            welcome = "Chào Em gái!";
             break;
 
         default:
-            welcome = "Bạn không phải thành viên trong gia đình";
+            welcome = "Chào Người lạ ơi!";
             break;
     }
 
