@@ -21,9 +21,10 @@
                 <a class="nav-link" id="bai2-tab" data-toggle="pill" href="#bai2">Bài 2. Lời chào</a>
                 <a class="nav-link" id="bai3-tab" data-toggle="pill" href="#bai3">Bài 3. Đếm số chẵn lẻ</a>
                 <a class="nav-link" id="bai4-tab" data-toggle="pill" href="#bai4">Bài 4. Xác định loại tam giác</a>
-                <a class="nav-link" id="bai4-tab" data-toggle="pill" href="#bai5">Bài 5. Tìm ngày tháng năm</a>
-                <a class="nav-link" id="bai4-tab" data-toggle="pill" href="#bai6">Bài 6. Tìm số ngày trong tháng</a>
-                <a class="nav-link" id="bai4-tab" data-toggle="pill" href="#bai7">Bài 7. Đọc số nguyên</a>
+                <a class="nav-link" id="bai5-tab" data-toggle="pill" href="#bai5">Bài 5. Tìm ngày tháng năm</a>
+                <a class="nav-link" id="bai6-tab" data-toggle="pill" href="#bai6">Bài 6. Tìm số ngày trong tháng</a>
+                <a class="nav-link" id="bai7-tab" data-toggle="pill" href="#bai7">Bài 7. Đọc số nguyên</a>
+                <a class="nav-link" id="bai8-tab" data-toggle="pill" href="#bai8">Bài 8. Tìm sinh viên xa trường nhất</a>
               </div>
             </div>
             <div class="col-8 py-5">
@@ -114,25 +115,26 @@
                 <div class="tab-pane fade" id="bai5">
                   <form>
                     <div class="form-group row">
-                      <label for="dateTime" class="col-sm-6 col-form-label">Nhập ngày, tháng, năm</label>
-                      <div class="col-sm-6">
+                      <label for="dateTime" class="col-sm-4 col-form-label">Nhập ngày, tháng, năm</label>
+                      <div class="col-sm-4">
                         <input type="date" class="form-control" id="dateTime">
                       </div>
                     </div>
+
+                    <button onclick="findDate()" type="button" class="btn btn-primary">Tìm ngày</button>
+
                     <div class="form-group row">
-                        <label class="col-sm-6 col-form-label">Ngày, tháng, năm tiếp theo</label>
-                        <div class="col-sm-6">
+                      <label class="col-sm-4 col-form-label">Ngày, tháng, năm trước đó</label>
+                      <div class="col-sm-4">
+                        <input type="datetime" class="form-control" id="prevDate" disabled>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Ngày, tháng, năm tiếp theo</label>
+                        <div class="col-sm-4">
                           <input type="datetime" class="form-control" id="nextDate" disabled>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-6 col-form-label">Ngày, tháng, năm trước đó</label>
-                        <div class="col-sm-6">
-                          <input type="datetime" class="form-control" id="prevDate" disabled>
-                        </div>
-                    </div>
-                                     
-                    <button onclick="findDate()" type="button" class="btn btn-primary">Tìm ngày</button>
                   </form>
                 </div>
 
@@ -140,14 +142,14 @@
                 <div class="tab-pane fade" id="bai6">
                   <form>
                     <div class="form-group row">
-                      <label for="monthYear" class="col-sm-6 col-form-label">Nhập tháng, năm</label>
-                      <div class="col-sm-6">
+                      <label for="monthYear" class="col-sm-4 col-form-label">Nhập tháng, năm</label>
+                      <div class="col-sm-4">
                         <input type="month" class="form-control" id="monthYear">
                       </div>
                     </div>
-                    <div id="display-days" class="alert alert-success"></div>
-                                     
+                  
                     <button onclick="getDaysInMonth()" type="button" class="btn btn-primary">Tìm số ngày</button>
+                    <div id="display-days" class="alert alert-success"></div>
                   </form>
                 </div>
 
@@ -160,9 +162,66 @@
                         <input type="number" maxlength="3" class="form-control" id="num" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                       </div>
                     </div>
-                    <div id="display-read" class="alert alert-success"></div>
-                                     
+                                                        
                     <button onclick="readNum()" type="button" class="btn btn-primary">Đọc số</button>
+                    <div id="display-read" class="alert alert-success"></div>
+                  </form>
+                </div>
+
+                 <!-- Bài 8 -->
+                 <div class="tab-pane fade" id="bai8">
+                  <form>
+                      <label for="">Sinh viên 1</label>
+                      <div class="form-group row">
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="sv1" placeholder="Nhập tên">
+                        </div>
+                        <div class="col-sm-4">
+                          <input type="number" class="form-control" id="x1" placeholder="Nhập tọa độ x">
+                        </div>
+                        <div class="col-sm-4">
+                          <input type="number" class="form-control" id="y1" placeholder="Nhập tọa độ y">
+                        </div>
+                      </div>
+
+                      <label for="">Sinh viên 2</label>
+                      <div class="form-group row">
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="sv2" placeholder="Nhập tên">
+                        </div>
+                        <div class="col-sm-4">
+                          <input type="number" class="form-control" id="x2" placeholder="Nhập tọa độ x">
+                        </div>
+                        <div class="col-sm-4">
+                          <input type="number" class="form-control" id="y2" placeholder="Nhập tọa độ y">
+                        </div>
+                      </div>
+
+                      <label for="">Sinh viên 3</label>
+                      <div class="form-group row">
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="sv3" placeholder="Nhập tên">
+                        </div>
+                        <div class="col-sm-4">
+                          <input type="number" class="form-control" id="x3" placeholder="Nhập tọa độ x">
+                        </div>
+                        <div class="col-sm-4">
+                          <input type="number" class="form-control" id="y3" placeholder="Nhập tọa độ y">
+                        </div>
+                      </div>
+
+                      <label for="">Trường học</label>
+                      <div class="form-group row">
+                        <div class="col-sm-4">
+                          <input type="number" class="form-control" id="x0" placeholder="Nhập tọa độ x">
+                        </div>
+                        <div class="col-sm-4">
+                          <input type="number" class="form-control" id="y0" placeholder="Nhập tọa độ y">
+                        </div>
+                      </div>
+                      
+                      <button onclick="timSV()" type="button" class="btn btn-primary">Tìm</button>
+                      <div id="sinhVien" class="alert alert-success"></div>
                   </form>
                 </div>
               </div>
@@ -184,5 +243,6 @@
     <script src="./js/bai5.js"></script>
     <script src="./js/bai6.js"></script>
     <script src="./js/bai7.js"></script>
+    <script src="./js/bai8.js"></script>
 </body>
 </html>
